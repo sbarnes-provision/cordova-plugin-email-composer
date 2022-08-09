@@ -63,6 +63,7 @@
   }
   CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:avail];
   [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
 
 /**
  * Checks if an email account is configured for use with the email composition view that opens in-app.

@@ -147,7 +147,8 @@ public class EmailComposer extends CordovaPlugin {
     /**
      * Tries to figure out if an email account is setup.
      */
-    private void account() {
+     // changing account to available to see if this will work w the new 'available' ios method i brought in
+    private void available() {
         cordova.getThreadPool().execute(new Runnable() {
             public void run() {
                 Impl impl   = new Impl(getContext());

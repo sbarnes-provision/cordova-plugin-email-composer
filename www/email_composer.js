@@ -117,6 +117,8 @@ exports.hasAccount = function (callback, scope) {
     exec(fn, null, 'EmailComposer', 'account', []);
 };
 
+// URL schemes for apple mail: `message://` and using `mailto:` to start a draft email
+// `googlegmail://`, `ms-outlook://`
 /**
  * Tries to find out if the device has an installed email client.
  *
@@ -145,7 +147,18 @@ exports.hasClient = function (app, callback, scope) {
     exec(fn, null, 'EmailComposer', 'client', [app]);
 };
 
-/**
+exports.isAvailable = function (callback) {
+    cordova.exec(function (avail) {
+      callback(avail ? true : false);
+    }, null, "SocialSharing", "available", []);
+  };
+  
+// this is the recommended way to share as it is the most feature-rich with respect to what you pass in and get back
+exports.shareWithOptions = function (options, successCallback, errorCallback) {
+    cordova.exec(successCallback, this._getErrorCallback(errorCallback, "shareWithOptions"), "SocialSharing", "shareWithOptions", [options]);
+  };
+
+  /**
  * List of package IDs for all available email clients (Android only).
  *
  * @param [ Function ] callback The callback function.
