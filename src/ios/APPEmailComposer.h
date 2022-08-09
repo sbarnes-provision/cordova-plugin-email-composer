@@ -30,4 +30,7 @@
 // Checks if the specified email client is installed
 - (void) client:(CDVInvokedUrlCommand*)command;
 
+- (void)available:(CDVInvokedUrlCommand*)command;
+- (void)shareWithOptions:(CDVInvokedUrlCommand*)command;
+
 @end

@@ -109,7 +109,11 @@ exports.requestPermission = function(permission, callback, scope) {
  */
 exports.hasAccount = function (callback, scope) {
     var fn  = this.createCallbackFn(callback, scope);
+    console.log(`callback is: ${callback}`)
+    console.log(`scope is: ${scope}`)
 
+    // fn - success cb(), emailcomposer is native service, account is native action
+    // when we call hasAccount we pass it a success and failure cb 
     exec(fn, null, 'EmailComposer', 'account', []);
 };
 
